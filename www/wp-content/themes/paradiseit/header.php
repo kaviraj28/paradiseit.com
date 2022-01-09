@@ -245,7 +245,6 @@
 							</ul>
 						</div>
 						<div class="others-option">
-							<a href="cart.html" class="cart-wrapper-btn"><i data-feather="shopping-cart"></i><span>0</span></a>
 							<a href="contact.html" class="btn btn-light">Support</a>
 							<a href="login.html" class="btn btn-primary">Login</a>
 						</div>
@@ -264,7 +263,6 @@
 					<div class="container">
 						<div class="option-inner">
 							<div class="others-option">
-								<a href="cart.html" class="cart-wrapper-btn"><i data-feather="shopping-cart"></i><span>0</span></a>
 								<a href="contact.html" class="btn btn-light">Support</a>
 								<a href="login.html" class="btn btn-primary">Login</a>
 							</div>

@@ -1,6 +1,6 @@
-(function($){
+(function ($) {
 	"use strict";
-	$(document).ready(function(){
+
 	// Feather Icon Js
 	feather.replace();
 
@@ -8,7 +8,7 @@
 	$('.mean-menu').meanmenu({
 		meanScreenWidth: "991"
 	});
-	
+
 	// Magnific Popup
 	$('.popup-youtube').magnificPopup({
 		disableOn: 320,
@@ -20,11 +20,11 @@
 	});
 
 	// Header Sticky
-	$(window).on('scroll',function() {
-		if ($(this).scrollTop() > 120){  
+	$(window).on('scroll', function () {
+		if ($(this).scrollTop() > 120) {
 			$('#header').addClass("is-sticky");
 		}
-		else{
+		else {
 			$('#header').removeClass("is-sticky");
 		}
 	});
@@ -32,13 +32,13 @@
 	// Popup Gallery
 	$('.popup-btn').magnificPopup({
 		type: 'image',
-		gallery:{
-			enabled:true
+		gallery: {
+			enabled: true
 		}
 	});
 
 	// Others Option Responsive JS
-	$(".others-option-for-responsive .dot-menu").on("click", function(){
+	$(".others-option-for-responsive .dot-menu").on("click", function () {
 		$(".others-option-for-responsive .container .container").toggleClass("active");
 	});
 
@@ -49,7 +49,7 @@
 		dots: false,
 		autoplayHoverPause: true,
 		autoplay: true,
-		margin:30,
+		margin: 30,
 		responsive: {
 			0: {
 				items: 1
@@ -131,7 +131,7 @@
 
 	// Feedback Carousel
 	var $imagesSlider = $(".feedback-slides .client-feedback>div"),
-	$thumbnailsSlider = $(".client-thumbnails>div");
+		$thumbnailsSlider = $(".client-thumbnails>div");
 	// images options
 	$imagesSlider.slick({
 		speed: 300,
@@ -159,24 +159,24 @@
 		prevArrow: '.client-thumbnails .prev-arrow',
 		nextArrow: '.client-thumbnails .next-arrow',
 	});
-	
+
 	// Go to Top
-	$(function(){
+	$(function () {
 		//Scroll event
-		$(window).on('scroll', function(){
+		$(window).on('scroll', function () {
 			var scrolled = $(window).scrollTop();
 			if (scrolled > 300) $('.go-top').fadeIn('slow');
 			if (scrolled < 300) $('.go-top').fadeOut('slow');
-		});  
+		});
 		//Click event
-		$('.go-top').on('click', function() {
-			$("html, body").animate({ scrollTop: "0" },  500);
+		$('.go-top').on('click', function () {
+			$("html, body").animate({ scrollTop: "0" }, 500);
 		});
 	});
-	
+
 	// FAQ Accordion
-	$(function() {
-		$('.accordion').find('.accordion-title').on('click', function(){
+	$(function () {
+		$('.accordion').find('.accordion-title').on('click', function () {
 			// Adds Active Class
 			$(this).toggleClass('active');
 			// Expand or Collapse This Panel
@@ -184,12 +184,12 @@
 			// Hide The Other Panels
 			$('.accordion-content').not($(this).next()).slideUp('fast');
 			// Removes Active Class From Other Titles
-			$('.accordion-title').not($(this)).removeClass('active');		
+			$('.accordion-title').not($(this)).removeClass('active');
 		});
 	});
 
 	// Tabs
-	$("#tabs li").on("click", function(){
+	$("#tabs li").on("click", function () {
 		var tab = $(this).attr("id");
 		if ($(this).hasClass("inactive")) {
 			$(this).removeClass("inactive");
@@ -199,17 +199,17 @@
 			$("#" + tab + "_content").siblings("div").removeClass("show");
 		}
 	});
-	
+
 	// Count Time 
 	function makeTimer() {
-		var endTime = new Date("August 19, 2022 17:00:00 PDT");			
+		var endTime = new Date("August 19, 2022 17:00:00 PDT");
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
 		if (hours < "10") { hours = "0" + hours; }
 		if (minutes < "10") { minutes = "0" + minutes; }
@@ -219,7 +219,7 @@
 		$("#minutes").html(minutes + "<span>Minutes</span>");
 		$("#seconds").html(seconds + "<span>Seconds</span>");
 	}
-	setInterval(function() { makeTimer(); }, 1000);
+	setInterval(function () { makeTimer(); }, 1000);
 
 	// Products Details Image Slides
 	var owl = $(".products-details-image-slides");
@@ -238,15 +238,15 @@
 	});
 
 	// Input Plus & Minus Number JS
-	$('.input-counter').each(function() {
+	$('.input-counter').each(function () {
 		var spinner = jQuery(this),
-		input = spinner.find('input[type="text"]'),
-		btnUp = spinner.find('.plus-btn'),
-		btnDown = spinner.find('.minus-btn'),
-		min = input.attr('min'),
-		max = input.attr('max');
-		
-		btnUp.on('click', function() {
+			input = spinner.find('input[type="text"]'),
+			btnUp = spinner.find('.plus-btn'),
+			btnDown = spinner.find('.minus-btn'),
+			min = input.attr('min'),
+			max = input.attr('max');
+
+		btnUp.on('click', function () {
 			var oldValue = parseFloat(input.val());
 			if (oldValue >= max) {
 				var newVal = oldValue;
@@ -256,7 +256,7 @@
 			spinner.find("input").val(newVal);
 			spinner.find("input").trigger("change");
 		});
-		btnDown.on('click', function() {
+		btnDown.on('click', function () {
 			var oldValue = parseFloat(input.val());
 			if (oldValue <= min) {
 				var newVal = oldValue;
@@ -269,9 +269,9 @@
 	});
 
 	// Odometer JS
-	$('.odometer').appear(function(e) {
+	$('.odometer').appear(function (e) {
 		var odo = $(".odometer");
-		odo.each(function() {
+		odo.each(function () {
 			var countNumber = $(this).attr("data-count");
 			$(this).html(countNumber);
 		});
@@ -305,8 +305,8 @@
 	(function ($) {
 		$('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
 		$('.tab ul.tabs li a').on('click', function (g) {
-			var tab = $(this).closest('.tab'), 
-			index = $(this).closest('li').index();
+			var tab = $(this).closest('.tab'),
+				index = $(this).closest('li').index();
 			tab.find('ul.tabs > li').removeClass('current');
 			$(this).closest('li').addClass('current');
 			tab.find('.tab_content').find('div.tabs_item').not('div.tabs_item:eq(' + index + ')').slideUp();
@@ -314,7 +314,7 @@
 			g.preventDefault();
 		});
 	})(jQuery);
-	
+
 	// ML Feedback Slides
 	$('.ml-feedback-slides').owlCarousel({
 		loop: true,
@@ -396,11 +396,11 @@
 			}
 		}
 	});
-	
+
 	// imagesLoaded
-	$('.grid').imagesLoaded(function() {
+	$('.grid').imagesLoaded(function () {
 		// filter items on button click
-		$('.shorting-menu').on('click', 'button', function() {
+		$('.shorting-menu').on('click', 'button', function () {
 			var filterValue = $(this).attr('data-filter');
 			$grid.isotope({
 				filter: filterValue
@@ -409,7 +409,7 @@
 	});
 
 	// Shorting Menu
-	$('.shorting-menu button').on('click', function(event) {
+	$('.shorting-menu button').on('click', function (event) {
 		$(this).siblings('.active').removeClass('active');
 		$(this).addClass('active');
 		event.preventDefault();
@@ -459,25 +459,24 @@
 			}
 		}
 	});
-	
-	$(window).on ('load', function (){
-        // WOW JS
-        if ($(".wow").length) { 
-            var wow = new WOW({
-            boxClass:     'wow',      // animated element css class (default is wow)
-            animateClass: 'animated', // animation css class (default is animated)
-            offset:       20,          // distance to the element when triggering the animation (default is 0)
-            mobile:       true,       // trigger animations on mobile devices (default is true)
-            live:         true,       // act on asynchronously loaded content (default is true)
-          });
-          wow.init();
-        }
+
+	$(window).on('load', function () {
+		// WOW JS
+		if ($(".wow").length) {
+			var wow = new WOW({
+				boxClass: 'wow',      // animated element css class (default is wow)
+				animateClass: 'animated', // animation css class (default is animated)
+				offset: 20,          // distance to the element when triggering the animation (default is 0)
+				mobile: true,       // trigger animations on mobile devices (default is true)
+				live: true,       // act on asynchronously loaded content (default is true)
+			});
+			wow.init();
+		}
 	});
-	
+
 	// Preloader
-    $(window).on('load', function () {
-        $('.preloader').fadeOut();
-    });
-});
+	$(window).on('load', function () {
+		$('.preloader').fadeOut();
+	});
 
 }(jQuery));
