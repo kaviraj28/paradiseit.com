@@ -51,7 +51,7 @@ function paradiseit_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'paradiseit'),
+			'nav-pri' => esc_html__('Primary', 'paradiseit'),
 		)
 	);
 
@@ -176,7 +176,7 @@ function paradiseit_scripts()
 	wp_enqueue_script('paradise-feather-script', get_template_directory_uri() . '/assets/js/feather.min.js', array('jquery'), null, true);
 	wp_enqueue_script('paradise-validator-script', get_template_directory_uri() . '/vendor/form/form-validator.min.js', array('jquery'), null, true);
 	wp_enqueue_script('paradise-contact-form-script', get_template_directory_uri() . '/vendor/form/contact-form-script.js', array('jquery'), null, true);
-	wp_enqueue_script('paradise-jquery-script', get_template_directory_uri() . '/assets/js/jquery.min.js', array('jquery'), null, true);
+	// wp_enqueue_script('paradise-jquery-script', get_template_directory_uri() . '/assets/js/jquery.min.js', array('jquery'), null, true);
 	wp_enqueue_script('paradise-main-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true);
 
 
@@ -225,17 +225,32 @@ if (!file_exists(get_template_directory() . '/inc/pit-bootstrap-navwalker.php'))
 	require_once get_template_directory() . '/inc/pit-bootstrap-navwalker.php';
 }
 
-/**
- * Load Custom Breadcrumbs.
- */
-if (!file_exists(get_template_directory() . '/inc/pit-breadcrumbs.php')) {
-	wp_die('<div style="text-align:center"><h1 style="font-weight:normal">Breadcrumbs Not Found</h1><p>Opps we have got error!<br>It appears the breadcrumbs.php file may be missing.</p></div>', 'Breadcrumbs Not Found');
-} else {
-	require_once get_template_directory() . '/inc/pit-breadcrumbs.php';
-}
-
 
 /**
  * Custom PostType & Widgets
  */
 require get_template_directory() . '/inc/Paradise/Paradise.php';
+
+
+function get_the_brand_logo()
+{
+	if (get_custom_logo()) :
+		the_custom_logo();
+	else :
+		$img = array('logo.svg', 'logo.png', 'logo.jpg');
+		$brand = '<span>' . get_bloginfo('name') . '</span>';
+		foreach ($img as $logo) {
+			if (file_exists(get_template_directory() . '/img/' . $logo)) {
+				$brand = '<img src="' . get_template_directory_uri() . '/img/' . $logo . '" alt="' . get_bloginfo('name') . '">';
+			} elseif (file_exists(get_template_directory() . '/images/' . $logo)) {
+				$brand = '<img src="' . get_template_directory_uri() . '/images/' . $logo . '" alt="' . get_bloginfo('name') . '">';
+			}
+		}
+		return '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '">' . $brand . '</a>';
+	endif;
+	return false;
+}
+function the_brand_logo()
+{
+	echo get_the_brand_logo();
+}

@@ -4,26 +4,6 @@
 get_header();
 while (have_posts()) {
 	the_post(); ?>
-
-	<div class="page-title-area">
-		<div class="d-table">
-			<div class="d-table-cell">
-				<div class="container">
-					<h2>Team</h2>
-				</div>
-			</div>
-		</div>
-		<div class="shape1"><img src="<?= get_template_directory_uri(); ?>/img/shape1.png" alt="shape"></div>
-		<div class="shape2 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
-		<div class="shape3"><img src="<?= get_template_directory_uri(); ?>/img/shape3.svg" alt="shape"></div>
-		<div class="shape4"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
-		<div class="shape5"><img src="<?= get_template_directory_uri(); ?>/img/shape5.png" alt="shape"></div>
-		<div class="shape6 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
-		<div class="shape7"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
-		<div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
-	</div>
-
-
 	<div class="team-area ptb-80 bg-f9f6f6">
 		<div class="container">
 			<div class="row">

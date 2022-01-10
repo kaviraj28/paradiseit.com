@@ -18,7 +18,6 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
@@ -36,9 +35,7 @@
 				<div class="container">
 					<div class="startp-responsive-menu">
 						<div class="logo">
-							<a href="index.html">
-								<img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="logo">
-							</a>
+							<?php the_brand_logo(); ?>
 						</div>
 					</div>
 				</div>
@@ -46,207 +43,23 @@
 			<div class="startp-nav">
 				<div class="container">
 					<nav class="navbar navbar-expand-md navbar-light">
-						<a class="navbar-brand" href="index.html"><img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="logo"></a>
+						<?php the_brand_logo(); ?>
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="#" class="nav-link active">Home <i data-feather="chevron-down"></i></a>
-									<ul class="dropdown_menu">
-										<li class="nav-item"><a href="#" class="nav-link active">Home One <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="index.html" class="nav-link active">Light
-														Green</a></li>
-												<li class="nav-item"><a href="brink-pink-index.html" class="nav-link">Brink
-														Pink</a></li>
-												<li class="nav-item"><a href="pink-index.html" class="nav-link">Pink</a>
-												</li>
-												<li class="nav-item"><a href="purple-index.html" class="nav-link">Purple</a>
-												</li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Two <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="index-2.html" class="nav-link">Light Green</a>
-												</li>
-												<li class="nav-item"><a href="brink-pink-index-2.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-index-2.html" class="nav-link">Pink</a>
-												</li>
-												<li class="nav-item"><a href="purple-index-2.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Three <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="index-3.html" class="nav-link">Light Green</a>
-												</li>
-												<li class="nav-item"><a href="brink-pink-index-3.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-index-3.html" class="nav-link">Pink</a>
-												</li>
-												<li class="nav-item"><a href="purple-index-3.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Four <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="repair-index.html" class="nav-link">Light
-														Green</a></li>
-												<li class="nav-item"><a href="brink-pink-repair-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-repair-index.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-repair-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Five <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="iot-index.html" class="nav-link">Light
-														Green</a></li>
-												<li class="nav-item"><a href="brink-pink-iot-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-iot-index.html" class="nav-link">Pink</a>
-												</li>
-												<li class="nav-item"><a href="purple-iot-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Six <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="machine-learning-index.html" class="nav-link">Light Green</a></li>
-												<li class="nav-item"><a href="brink-pink-machine-learning-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-machine-learning-index.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-machine-learning-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Seven <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="machine-learning-index-2.html" class="nav-link">Light Green</a></li>
-												<li class="nav-item"><a href="brink-pink-machine-learning-index-2.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-machine-learning-index-2.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-machine-learning-index-2.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Eight <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="agency-index.html" class="nav-link">Light
-														Green</a></li>
-												<li class="nav-item"><a href="brink-pink-agency-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-agency-index.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-agency-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Nine <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="agency-portfolio-index.html" class="nav-link">Light Green</a></li>
-												<li class="nav-item"><a href="brink-pink-agency-portfolio-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-agency-portfolio-index.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-agency-portfolio-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Ten <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="bigdata-analytics-index.html" class="nav-link">Light Green</a></li>
-												<li class="nav-item"><a href="brink-pink-bigdata-analytics-index.html" class="nav-link">Brink Pink</a></li>
-												<li class="nav-item"><a href="pink-bigdata-analytics-index.html" class="nav-link">Pink</a></li>
-												<li class="nav-item"><a href="purple-bigdata-analytics-index.html" class="nav-link">Purple</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Home Static Image <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="static-image-index.html" class="nav-link">Demo
-														1</a></li>
-												<li class="nav-item"><a href="static-image-index-2.html" class="nav-link">Demo 2</a></li>
-												<li class="nav-item"><a href="static-image-index-3.html" class="nav-link">Demo 3</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="nav-item"><a href="#" class="nav-link">About <i data-feather="chevron-down"></i></a>
-									<ul class="dropdown_menu">
-										<li class="nav-item"><a href="about-1.html" class="nav-link">About Style 1</a></li>
-										<li class="nav-item"><a href="about-2.html" class="nav-link">About Style 2</a></li>
-										<li class="nav-item"><a href="about-3.html" class="nav-link">About Style 3</a></li>
-									</ul>
-								</li>
-								<li class="nav-item"><a href="#" class="nav-link">Pages <i data-feather="chevron-down"></i></a>
-									<ul class="dropdown_menu">
-										<li class="nav-item"><a href="#" class="nav-link">Features <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="features.html" class="nav-link">Features</a>
-												</li>
-												<li class="nav-item"><a href="single-features.html" class="nav-link">Features Details</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="#" class="nav-link">Services <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="services-1.html" class="nav-link">Services
-														Style 1</a></li>
-												<li class="nav-item"><a href="services-2.html" class="nav-link">Services
-														Style 2</a></li>
-												<li class="nav-item"><a href="services-3.html" class="nav-link">Services
-														Style 3</a></li>
-												<li class="nav-item"><a href="services-4.html" class="nav-link">Services
-														Style 4</a></li>
-												<li class="nav-item"><a href="services-5.html" class="nav-link">Services
-														Style 5</a></li>
-												<li class="nav-item"><a href="single-services.html" class="nav-link">Services Details</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
-										<li class="nav-item"><a href="#" class="nav-link">Project <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="project-1.html" class="nav-link">Project Style
-														1</a></li>
-												<li class="nav-item"><a href="project-2.html" class="nav-link">Project Style
-														2</a></li>
-												<li class="nav-item"><a href="single-project.html" class="nav-link">Project
-														Details</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-										<li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-										<li class="nav-item"><a href="#" class="nav-link">User <i data-feather="chevron-right"></i></a>
-											<ul class="dropdown_menu">
-												<li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
-												<li class="nav-item"><a href="register.html" class="nav-link">Register</a>
-												</li>
-												<li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot
-														Password</a></li>
-											</ul>
-										</li>
-										<li class="nav-item"><a href="privacy-policy.html" class="nav-link">Privacy
-												Policy</a></li>
-										<li class="nav-item"><a href="terms-conditions.html" class="nav-link">Terms &
-												Conditions</a></li>
-										<li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
-										<li class="nav-item"><a href="coming-soon.html" class="nav-link">Coming Soon</a>
-										</li>
-										<li class="nav-item"><a href="404-error.html" class="nav-link">404 Error Page</a>
-										</li>
-									</ul>
-								</li>
-								<li class="nav-item"><a href="#" class="nav-link">Shop <i data-feather="chevron-down"></i></a>
-									<ul class="dropdown_menu">
-										<li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
-										<li class="nav-item"><a href="single-products.html" class="nav-link">Single
-												Products</a></li>
-										<li class="nav-item"><a href="cart.html" class="nav-link">Cart</a></li>
-										<li class="nav-item"><a href="checkout.html" class="nav-link">Checkout</a></li>
-									</ul>
-								</li>
-								<li class="nav-item"><a href="#" class="nav-link">Blog <i data-feather="chevron-down"></i></a>
-									<ul class="dropdown_menu">
-										<li class="nav-item"><a href="blog-1.html" class="nav-link">Blog Grid</a></li>
-										<li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Right Sidebar</a>
-										</li>
-										<li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid 2</a></li>
-										<li class="nav-item"><a href="blog-4.html" class="nav-link">Blog Right Sidebar 2</a>
-										</li>
-										<li class="nav-item"><a href="blog-5.html" class="nav-link">Blog Grid 3</a></li>
-										<li class="nav-item"><a href="blog-6.html" class="nav-link">Blog Right Sidebar 3</a>
-										</li>
-										<li class="nav-item"><a href="single-blog.html" class="nav-link">Blog Details</a>
-										</li>
-									</ul>
-								</li>
-								<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-							</ul>
+							<?php wp_nav_menu(array(
+								'theme_location'  => 'nav-pri',
+								'depth'	          => 3, // 1 = no dropdowns, 2 = with dropdowns.
+								'container'       => 'ul',
+								'container_class' => 'navbar-nav nav ml-auto',
+								'container_id'    => 'nav-pri',
+								'menu_class'      => 'nav navbar-nav justify-content-center ml-auto',
+								'walker'         => new WP_Bootstrap_NavWalker(),
+								'fallback_cb'    => 'Bootstrap_NavWalker::fallback',
+							));
+							?>
 						</div>
 						<div class="others-option">
 							<a href="contact.html" class="btn btn-light">Support</a>
-							<a href="login.html" class="btn btn-primary">Login</a>
+							<a href="login.html" class="btn btn-primary">Download</a>
 						</div>
 					</nav>
 				</div>
@@ -271,3 +84,69 @@
 				</div>
 			</div>
 		</header>
+		<?php if (is_front_page()) { ?>
+			<div class="main-banner">
+				<div class="d-table">
+					<div class="d-table-cell">
+						<div class="container">
+							<div class="row h-100 justify-content-center align-items-center">
+								<div class="col-lg-5">
+									<div class="hero-content">
+										<h1>Secure IT Solutions for a more secure environment</h1>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+											gravida.</p>
+										<a href="contact.html" class="btn btn-primary">Get Started</a>
+									</div>
+								</div>
+								<div class="col-lg-6 offset-lg-1">
+									<div class="banner-image">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/man.png" class="wow fadeInDown" data-wow-delay="0.6s" alt="man">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/code.png" class="wow fadeInUp" data-wow-delay="0.6s" alt="code">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/carpet.png" class="wow fadeInLeft" data-wow-delay="0.6s" alt="carpet">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/bin.png" class="wow zoomIn" data-wow-delay="0.6s" alt="bin">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/book.png" class="wow bounceIn" data-wow-delay="0.6s" alt="book">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/dekstop.png" class="wow fadeInDown" data-wow-delay="0.6s" alt="dekstop">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/dot.png" class="wow zoomIn" data-wow-delay="0.6s" alt="dot">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/flower-top-big.png" class="wow fadeInUp" data-wow-delay="0.6s" alt="flower-top-big">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/flower-top.png" class="wow rotateIn" data-wow-delay="0.6s" alt="flower-top">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/keyboard.png" class="wow fadeInUp" data-wow-delay="0.6s" alt="keyboard">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/pen.png" class="wow zoomIn" data-wow-delay="0.6s" alt="pen">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/table.png" class="wow zoomIn" data-wow-delay="0.6s" alt="table">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/tea-cup.png" class="wow fadeInLeft" data-wow-delay="0.6s" alt="tea-cup">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/headphone.png" class="wow rollIn" data-wow-delay="0.6s" alt="headphone">
+										<img src="<?= get_template_directory_uri(); ?>/img/banner-image/main-pic.png" class="wow fadeInUp" data-wow-delay="0.6s" alt="main-pic">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shape1"><img src="<?= get_template_directory_uri(); ?>/img/shape1.png" alt="shape"></div>
+				<div class="shape2 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+				<div class="shape3"><img src="<?= get_template_directory_uri(); ?>/img/shape3.svg" alt="shape"></div>
+				<div class="shape4"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape5"><img src="<?= get_template_directory_uri(); ?>/img/shape5.png" alt="shape"></div>
+				<div class="shape6 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape7"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+			</div>
+		<?php } else { ?>
+			<div class="page-title-area">
+				<div class="d-table">
+					<div class="d-table-cell">
+						<div class="container">
+							<h2><?= get_the_title(); ?></h2>
+						</div>
+					</div>
+				</div>
+				<div class="shape1"><img src="<?= get_template_directory_uri(); ?>/img/shape1.png" alt="shape"></div>
+				<div class="shape2 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+				<div class="shape3"><img src="<?= get_template_directory_uri(); ?>/img/shape3.svg" alt="shape"></div>
+				<div class="shape4"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape5"><img src="<?= get_template_directory_uri(); ?>/img/shape5.png" alt="shape"></div>
+				<div class="shape6 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape7"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+				<div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+			</div>
+		<?php } ?>

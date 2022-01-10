@@ -3,8 +3,8 @@
 /**
  * Bootstrap NavWalker
  * Class Name: Bootstrap_NavWalker
- * Author: SmartSites
- * Author URI: https://www.smartsites.com/
+ * Author: Paradise IT Solution
+ * Author URI: https://paradiseit.com.np/
  * GitHub URI: 
  * Description: A custom WordPress nav walker class to implement the Bootstrap 4 navigation style in a custom WordPress
  * Bootstrap based theme using the WordPress built in menu manager.
@@ -60,7 +60,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu
 		}
 		$indent = str_repeat($t, $depth);
 		// Default class to add to the file.
-		$classes = array('dropdown-menu');
+		$classes = array('dropdown_menu');
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
 		 *
@@ -74,7 +74,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu
 		$class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
 
 		/*
-			 * The `.dropdown-menu` container needs to have a labelledby
+			 * The `.dropdown_menu` container needs to have a labelledby
 			 * attribute which points to it's trigger link.
 			 *
 			 * Form a string for the labelledby attribute from the the latest
@@ -211,7 +211,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu
 			$atts['href'] = $item->url ?: '#';
 		}
 		if ($this->has_children && 0 === $depth) {
-			$atts['class']         = 'dropdown-toggle nav-link';
+			$atts['class']         = ' nav-link';
 			$atts['data-toggle']   = 'dropdown';
 			$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			$atts['aria-haspopup'] = "true";
@@ -316,7 +316,7 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu
 			if ($this->has_children != true) {
 				$item_output .= '</a>';
 			} else {
-				$item_output .= '</a><span class="customToggler"></span>';
+				$item_output .= '<i data-feather="chevron-down"></i></a>';
 			}
 		}
 
