@@ -7,186 +7,40 @@ while (have_posts()) {
 	<div class="team-area ptb-80 bg-f9f6f6">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/1.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Josh Buttler</h3>
-								<span>CEO & Founder</span>
+				<?php $get_teams = kk_get_custom_post_type(-1, 'pit_team', 'DESC', 'date');
+				if ($get_teams) {
+					foreach ($get_teams as $team) {
+						$designation = get_field('designation', $team->ID);
+						$team_social = array(
+							array(get_field('facebook', $team->ID), 'facebook'),
+							array(get_field('twitter', $team->ID), 'twitter'),
+							array(get_field('linkedin', $team->ID), 'linkedin'),
+							array(get_field('gitlab', $team->ID), 'gitlab'),
+						); ?>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="single-team">
+								<div class="team-image">
+									<?= get_thumbnail_url_and_alt_text($team->ID, home_url('media/team.png'), 'team-thumb'); ?>
+								</div>
+								<div class="team-content">
+									<div class="team-info">
+										<h3><?= $team->post_title; ?></h3>
+										<?= check_if_exists($designation, 'span'); ?>
+									</div>
+									<ul>
+										<?php for ($i = 0; $i < count($team_social); $i++) { ?>
+											<li>
+												<a href="<?= $team_social[$i][0] ?: '#'; ?>" target="_blank"><i data-feather="<?= $team_social[$i][1]; ?>"></i>
+												</a>
+											</li>
+										<?php } ?>
+									</ul>
+									<?= check_if_exists($team->post_content, 'p'); ?>
+								</div>
 							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
 						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/2.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Alex Maxwel</h3>
-								<span>Marketing Manager</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/3.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Janny Cotller</h3>
-								<span>Web Developer</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/4.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Jason Statham</h3>
-								<span>UX/UI Designer</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/5.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Corey Anderson</h3>
-								<span>Project Manager</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/1.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Josh Buttler</h3>
-								<span>CEO & Founder</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/2.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Alex Maxwel</h3>
-								<span>Marketing Manager</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/3.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Janny Cotller</h3>
-								<span>Web Developer</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6">
-					<div class="single-team">
-						<div class="team-image">
-							<img src="<?= get_template_directory_uri(); ?>/img/team-image/4.jpg" alt="image">
-						</div>
-						<div class="team-content">
-							<div class="team-info">
-								<h3>Jason Statham</h3>
-								<span>UX/UI Designer</span>
-							</div>
-							<ul>
-								<li><a href="#" target="_blank"><i data-feather="facebook"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="twitter"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="linkedin"></i></a></li>
-								<li><a href="#" target="_blank"><i data-feather="gitlab"></i></a></li>
-							</ul>
-							<p>Risus commodo viverra maecenas accumsan lacus vel facilisis quis ipsum. </p>
-						</div>
-					</div>
-				</div>
+				<?php }
+				} ?>
 			</div>
 		</div>
 	</div>

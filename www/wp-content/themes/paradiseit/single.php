@@ -10,7 +10,6 @@
 
 get_header();
 ?>
-
 <div class="blog-details-area ptb-80">
 	<div class="container">
 		<div class="row">
@@ -80,51 +79,32 @@ get_header();
 							<div class="clear"></div>
 						</article>
 					</div>
-					<div class="widget widget_categories">
-						<h3 class="widget-title">Categories</h3>
-						<ul>
-							<li><a href="#">Business</a></li>
-							<li><a href="#">Privacy</a></li>
-							<li><a href="#">Technology</a></li>
-							<li><a href="#">Tips</a></li>
-							<li><a href="#">Uncategorized</a></li>
-						</ul>
-					</div>
-					<div class="widget widget_archive">
-						<h3 class="widget-title">Archives</h3>
-						<ul>
-							<li><a href="#">May 2019</a></li>
-							<li><a href="#">April 2019</a></li>
-							<li><a href="#">June 2019</a></li>
-						</ul>
-					</div>
-					<div class="widget widget_meta">
-						<h3 class="widget-title">Meta</h3>
-						<ul>
-							<li><a href="#">Log in</a></li>
-							<li><a href="#">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-							<li><a href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-							<li><a href="#">WordPress.org</a></li>
-						</ul>
-					</div>
-					<div class="widget widget_tag_cloud">
-						<h3 class="widget-title">Tags</h3>
-						<div class="tagcloud">
-							<a href="#">IT <span class="tag-link-count"> (3)</span></a>
-							<a href="#">Spacle <span class="tag-link-count"> (3)</span></a>
-							<a href="#">Games <span class="tag-link-count"> (2)</span></a>
-							<a href="#">Fashion <span class="tag-link-count"> (2)</span></a>
-							<a href="#">Travel <span class="tag-link-count"> (1)</span></a>
-							<a href="#">Smart <span class="tag-link-count"> (1)</span></a>
-							<a href="#">Marketing <span class="tag-link-count"> (1)</span></a>
-							<a href="#">Tips <span class="tag-link-count"> (2)</span></a>
+					<?php $post_category = kk_get_taxonomy('category');
+					if ($post_category) { ?>
+						<div class="widget widget_categories">
+							<h3 class="widget-title">Categories</h3>
+							<ul>
+								<?php foreach ($post_category as $category) {
+									echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+								} ?>
+							</ul>
 						</div>
-					</div>
+					<?php }
+					$post_tag = kk_get_taxonomy('post_tag');
+					if ($post_tag) { ?>
+						<div class="widget widget_tag_cloud">
+							<h3 class="widget-title">Tags</h3>
+							<div class="tagcloud">
+								<?php foreach ($post_tag as $tags) {
+									echo '<a href="' . get_category_link($tags->term_id) . '">' . $tags->name . ' <span class="tag-link-count"> (' . $tags->count . ')</span></a>';
+								} ?>
+							</div>
+						</div>
+					<?php } ?>
 				</aside>
 			</div>
 		</div>
 	</div>
 </div>
-
 <?php
 get_footer();

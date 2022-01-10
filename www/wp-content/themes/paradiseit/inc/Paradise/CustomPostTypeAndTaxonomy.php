@@ -120,7 +120,7 @@ class CustomPostTypeAndTaxonomy
 			'labels'              => $labels,
 			'supports'            => array('title', 'editor', 'page-attributes', 'thumbnail', 'excerpt'),
 			'hierarchical'        => true,
-			'public'              => true,
+			'public'              => false,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'menu_position'       => 25,
@@ -143,7 +143,7 @@ class CustomPostTypeAndTaxonomy
 		$singular_name  = 'Services';
 		$_name          = 'Services';
 		$post_type_slug = 'pit_services';
-		$post_rewrite = 'meet-the-services';
+		$post_rewrite = 'services';
 		$rewrite      = $post_rewrite ? array('slug' => $post_rewrite, 'with_front' => false) : array();
 		$labels       = array(
 			'name'                  => _x($_name, 'Post Type General Name', $this->text_domain),
@@ -201,7 +201,7 @@ class CustomPostTypeAndTaxonomy
 		$singular_name  = 'Projects';
 		$_name          = 'Projects';
 		$post_type_slug = 'pit_projects';
-		$post_rewrite = 'meet-the-projects';
+		$post_rewrite = 'projects';
 		$rewrite      = $post_rewrite ? array('slug' => $post_rewrite, 'with_front' => false) : array();
 		$labels       = array(
 			'name'                  => _x($_name, 'Post Type General Name', $this->text_domain),

@@ -58,7 +58,7 @@
 							?>
 						</div>
 						<div class="others-option">
-							<a href="contact.html" class="btn btn-light">Support</a>
+							<a href="contact.html" class="btn btn-light">Special Offer</a>
 							<a href="login.html" class="btn btn-primary">Download</a>
 						</div>
 					</nav>
@@ -76,7 +76,7 @@
 					<div class="container">
 						<div class="option-inner">
 							<div class="others-option">
-								<a href="contact.html" class="btn btn-light">Support</a>
+								<a href="contact.html" class="btn btn-light">Special Offer</a>
 								<a href="login.html" class="btn btn-primary">Download</a>
 							</div>
 						</div>
@@ -138,7 +138,7 @@
 						<div class="d-table">
 							<div class="d-table-cell">
 								<div class="container">
-									<h2><?= get_the_title(); ?></h2>
+									<h1><?= get_the_title(); ?></h1>
 								</div>
 							</div>
 						</div>

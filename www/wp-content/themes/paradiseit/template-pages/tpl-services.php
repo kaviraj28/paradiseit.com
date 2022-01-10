@@ -7,60 +7,20 @@ while (have_posts()) {
 	<div class="ml-services-area ptb-80">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/1.png" alt="image">
+				<?php $get_services = kk_get_custom_post_type(-1, 'pit_services', 'DESC', 'date');
+				if ($get_services) {
+					foreach ($get_services as $service) { ?>
+						<div class="col-lg-4 col-sm-6 col-md-6">
+							<div class="single-ml-services-box">
+								<div class="image">
+									<?= get_thumbnail_url_and_alt_text($service->ID, home_url('media/service.png'), 'service-thumb'); ?>
+								</div>
+								<h3><a href="<?= get_permalink($service->ID); ?>"><?= $service->post_title; ?></a></h3>
+								<?= custom_length_excerpt(107, $service->post_content); ?>
+							</div>
 						</div>
-						<h3><a href="single-services.html">IT Professionals</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/2.png" alt="image">
-						</div>
-						<h3><a href="single-services.html">Software Engineers</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/3.png" alt="image">
-						</div>
-						<h3><a href="#">Health &amp; Manufacturing</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/4.png" alt="image">
-						</div>
-						<h3><a href="#">Security &amp; Surveillance</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/5.png" alt="image">
-						</div>
-						<h3><a href="#">Automatic Optimization</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 col-md-6">
-					<div class="single-ml-services-box">
-						<div class="image">
-							<img src="assets/img/services-image/6.png" alt="image">
-						</div>
-						<h3><a href="single-services.html">Data Analysts</a></h3>
-						<p>Lorem ipsum dolor sit amet elit, adipiscing, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
-					</div>
-				</div>
+				<?php }
+				} ?>
 			</div>
 		</div>
 		<div class="shape1"><img src="assets/img/shape1.png" alt="shape"></div>

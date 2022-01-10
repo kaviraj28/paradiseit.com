@@ -56,7 +56,7 @@
 			</div>
 			<div class="col-lg-12 col-md-12">
 				<div class="copyright-area">
-					<p>Copyright @<?= date('Y'); ?> StartP. All Rights Reserved by <a href="/" target="_blank">Paradise IT Solutions</a></p>
+					<p>Copyright &copy; <?= date('Y'); ?> <a href="/">Paradise IT Solutions</a> . All Right Reserved.</p>
 				</div>
 			</div>
 		</div>
