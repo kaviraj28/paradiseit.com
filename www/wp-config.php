@@ -21,13 +21,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'paradiseit_new_db');
+define('DB_NAME', 'parait_staging_db');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'parait');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'Ciwp418!');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
