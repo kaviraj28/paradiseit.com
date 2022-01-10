@@ -47,11 +47,15 @@ function paradiseit_setup()
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 	add_theme_support('post-thumbnails');
+	add_image_size('blog-thumb', 356, 290, true);
+	add_image_size('blog-nav', 100, 81, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
 			'nav-pri' => esc_html__('Primary', 'paradiseit'),
+			'footer-one' => esc_html__('Company', 'paradiseit'),
+			'footer-two' => esc_html__('Support', 'paradiseit'),
 		)
 	);
 
@@ -135,6 +139,34 @@ function paradiseit_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(array(
+		'name' => esc_html__('Footer Info', 'paradiseit'),
+		'id' => 'footer_info',
+		'description' => esc_html__('Add widgets here.', 'paradiseit'),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+	register_sidebar(array(
+		'name' => esc_html__('Footer Address', 'paradiseit'),
+		'id' => 'footer_address',
+		'description' => esc_html__('Add widgets here.', 'paradiseit'),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+
+	register_sidebar(array(
+		'name' => esc_html__('Share Links', 'paradiseit'),
+		'id' => 'share_links',
+		'description' => esc_html__('Add widgets here.', 'paradiseit'),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
 }
 add_action('widgets_init', 'paradiseit_widgets_init');
 

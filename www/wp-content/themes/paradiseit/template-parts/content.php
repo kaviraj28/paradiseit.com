@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying posts
  *
@@ -7,57 +8,36 @@
  * @package paradiseit
  */
 
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				paradiseit_posted_on();
-				paradiseit_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php paradiseit_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'paradiseit' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'paradiseit' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php paradiseit_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+if (is_single()) { ?>
+	<div class="article-image">
+		<?= get_thumbnail_url_and_alt_text(get_the_ID()); ?>
+	</div>
+	<div class="article-content">
+		<div class="entry-meta">
+			<ul>
+				<li><i data-feather="clock"></i> <a href="javascript:void(0)"><?= get_the_date('F d, Y'); ?></a></li>
+				<li><i data-feather="user"></i> <a href="javascript:void(0)"><?= get_the_author(); ?></a></li>
+			</ul>
+		</div>
+		<?= apply_filters('the_content', get_the_content()); ?>
+	</div>
+<?php } else { ?>
+	<div class="col-lg-4 col-md-6">
+		<div class="single-blog-post">
+			<div class="blog-image">
+				<a href="<?= get_permalink(); ?>">
+					<?= get_thumbnail_url_and_alt_text(get_the_ID(), '', 'blog-thumb'); ?>
+				</a>
+				<div class="date">
+					<i data-feather="calendar"></i> <?= get_the_date('F d, Y'); ?>
+				</div>
+			</div>
+			<div class="blog-post-content">
+				<h3><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h3>
+				<span>by <a href="<?= get_permalink(); ?>">admin</a></span>
+				<?= custom_length_excerpt(164, get_the_content()); ?>
+				<a href="<?= get_permalink(); ?>" class="read-more-btn">Read More <i data-feather="arrow-right"></i> </a>
+			</div>
+		</div>
+	</div>
+<?php }

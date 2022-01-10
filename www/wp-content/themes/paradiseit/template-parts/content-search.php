@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying results in search pages
  *
@@ -8,28 +9,21 @@
  */
 
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			paradiseit_posted_on();
-			paradiseit_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php paradiseit_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php paradiseit_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<div class="col-lg-4 col-md-6" id="post-<?php the_ID(); ?>">
+	<div class="single-blog-post">
+		<div class="blog-image">
+			<a href="<?= get_permalink(); ?>">
+				<?= get_thumbnail_url_and_alt_text(get_the_ID(), '', 'blog-thumb'); ?>
+			</a>
+			<div class="date">
+				<i data-feather="calendar"></i> <?= get_the_date('F d, Y'); ?>
+			</div>
+		</div>
+		<div class="blog-post-content">
+			<h3><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h3>
+			<span>by <a href="<?= get_permalink(); ?>">admin</a></span>
+			<?= custom_length_excerpt(164, get_the_content()); ?>
+			<a href="<?= get_permalink(); ?>" class="read-more-btn">Read More <i data-feather="arrow-right"></i> </a>
+		</div>
+	</div>
+</div>

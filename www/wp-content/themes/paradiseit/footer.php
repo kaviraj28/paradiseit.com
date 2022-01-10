@@ -11,64 +11,52 @@
  */
 
 ?>
-
+</main>
 <footer class="footer-area bg-f7fafd">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="single-footer-widget">
-					<div class="logo">
-						<a href="index.html"><img src="<?= get_template_directory_uri(); ?>/img/logo.png" alt="logo"></a>
-					</div>
-					<p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-						facilisis.</p>
+					<?php get_sidebar('footer_info'); ?>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="single-footer-widget pl-5">
 					<h3>Company</h3>
-					<ul class="list">
-						<li><a href="about-1.html">About Us</a></li>
-						<li><a href="services-1.html">Services</a></li>
-						<li><a href="features.html">Features</a></li>
-						<li><a href="pricing.html">Our Pricing</a></li>
-						<li><a href="blog-1.html">Latest News</a></li>
-					</ul>
+					<?php wp_nav_menu(array(
+						'theme_location' => 'footer-one',
+						'depth' => 1, // 1 = no dropdowns, 2 = with dropdowns.
+						'container' => 'ul',
+						'container_id' => 'footer-one',
+						'container_class' => 'list',
+						'menu_class' => 'list',
+					)); ?>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="single-footer-widget">
 					<h3>Support</h3>
-					<ul class="list">
-						<li><a href="faq.html">FAQ's</a></li>
-						<li><a href="privacy-policy.html">Privacy Policy</a></li>
-						<li><a href="terms-conditions.html">Terms & Condition</a></li>
-						<li><a href="contact.html">Support Us</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-					</ul>
+					<?php wp_nav_menu(array(
+						'theme_location'  => 'footer-two',
+						'depth'	          => 1, // 1 = no dropdowns, 2 = with dropdowns.
+						'container'       => 'ul',
+						'container_class' => 'list',
+						'container_id'    => 'footer-two',
+						'menu_class'      => 'list',
+					));
+					?>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="single-footer-widget">
 					<h3>Address</h3>
-					<ul class="footer-contact-info">
-						<li><i data-feather="map-pin"></i> 27 Division St, New York, NY 10002, USA</li>
-						<li><i data-feather="mail"></i> Email: <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#9ef6fbf2f2f1deedeaffeceaeeb0fdf1f3"><span class="__cf_email__" data-cfemail="d7bfb2bbbbb897a4a3b6a5a3a7f9b4b8ba">[email&#160;protected]</span></a>
-						</li>
-						<li><i data-feather="phone-call"></i> Phone: <a href="tel:+ (321) 984 754">+ (321) 984
-								754</a></li>
-					</ul>
-					<ul class="social-links">
-						<li><a href="#" class="facebook" target="_blank"><i data-feather="facebook"></i></a></li>
-						<li><a href="#" class="twitter" target="_blank"><i data-feather="twitter"></i></a></li>
-						<li><a href="#" class="instagram" target="_blank"><i data-feather="instagram"></i></a></li>
-						<li><a href="#" class="linkedin" target="_blank"><i data-feather="linkedin"></i></a></li>
-					</ul>
+					<?php get_sidebar('footer_address');
+					get_sidebar('share_links'); ?>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12">
 				<div class="copyright-area">
-					<p>Copyright @2021 StartP. All Rights Reserved by <a href="https://envytheme.com/" target="_blank">EnvyTheme</a></p>
+					<p>Copyright @<?= date('Y'); ?> StartP. All Rights Reserved by <a href="/" target="_blank">Paradise IT Solutions</a></p>
 				</div>
 			</div>
 		</div>

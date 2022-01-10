@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
@@ -11,27 +12,337 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function paradiseit_body_classes( $classes ) {
+function paradiseit_body_classes($classes)
+{
 	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
+	if (!is_singular()) {
 		$classes[] = 'hfeed';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	if (!is_active_sidebar('sidebar-1')) {
 		$classes[] = 'no-sidebar';
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', 'paradiseit_body_classes' );
+add_filter('body_class', 'paradiseit_body_classes');
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function paradiseit_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+function paradiseit_pingback_header()
+{
+	if (is_singular() && pings_open()) {
+		printf('<li class="page-item"nk rel="pingback" href="%s">', esc_url(get_bloginfo('pingback_url')));
 	}
 }
-add_action( 'wp_head', 'paradiseit_pingback_header' );
+add_action('wp_head', 'paradiseit_pingback_header');
+
+// Return an alternate title, without prefix, for every type used in the get_the_archive_title().
+add_filter('get_the_archive_title', function ($title) {
+	if (is_category()) {
+		$title = single_cat_title('', false);
+	} elseif (is_tag()) {
+		$title = single_tag_title('', false);
+	} elseif (is_author()) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>';
+	} elseif (is_year()) {
+		$title = get_the_date(_x('Y', 'yearly archives date format'));
+	} elseif (is_month()) {
+		$title = get_the_date(_x('F Y', 'monthly archives date format'));
+	} elseif (is_day()) {
+		$title = get_the_date(_x('F j, Y', 'daily archives date format'));
+	} elseif (is_tax('post_format')) {
+		if (is_tax('post_format', 'post-format-aside')) {
+			$title = _x('Asides', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-gallery')) {
+			$title = _x('Galleries', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-image')) {
+			$title = _x('Images', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-video')) {
+			$title = _x('Videos', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-quote')) {
+			$title = _x('Quotes', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-link')) {
+			$title = _x('Links', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-status')) {
+			$title = _x('Statuses', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-audio')) {
+			$title = _x('Audio', 'post format archive title');
+		} elseif (is_tax('post_format', 'post-format-chat')) {
+			$title = _x('Chats', 'post format archive title');
+		}
+	} elseif (is_post_type_archive()) {
+		$title = post_type_archive_title('', false);
+	} elseif (is_tax()) {
+		$title = single_term_title('', false);
+	} elseif (is_search()) {
+		$title = sprintf(esc_html__('Search Results for: %s', 'signature-realty'), '<span>' . get_search_query() . '</span>');
+	} elseif (is_home()) {
+		$title = __('Blog');
+	} elseif (is_404()) {
+		$title = __('404 Not Found');
+	} else {
+		$title = __('Archives');
+	}
+	return $title;
+});
+
+/****************************************
+ * Returns value if field is not empty **
+ ****************************************/
+function check_if_exists($value, $html_tag, $class = '')
+{
+	$get_content = '';
+	if (!is_string($html_tag)) return $get_content;
+	$add_class = $class != '' ? 'class="' . $class . '"' : '';
+	switch ($html_tag) {
+		case 'h1':
+			if ($value) {
+				$get_content .= '<h1 ' . $add_class . '>' . $value . '</h1>';
+			}
+			break;
+		case 'h2':
+			if ($value) {
+				$get_content .= '<h2 ' . $add_class . '>' . $value . '</h2>';
+			}
+			break;
+		case 'h3':
+			if ($value) {
+				$get_content .= '<h3 ' . $add_class . '>' . $value . '</h3>';
+			}
+			break;
+		case 'h4':
+			if ($value) {
+				$get_content .= '<h4 ' . $add_class . '>' . $value . '</h4>';
+			}
+			break;
+		case 'h5':
+			if ($value) {
+				$get_content .= '<h5 ' . $add_class . '>' . $value . '</h5>';
+			}
+			break;
+		case 'h6':
+			if ($value) {
+				$get_content .= '<h6 ' . $add_class . '>' . $value . '</h6>';
+			}
+			break;
+		case 'p':
+			if ($value) {
+				$get_content .= '<p ' . $add_class . '>' . $value . '</p>';
+			}
+			break;
+		case 'small':
+			if ($value) {
+				$get_content .= '<small ' . $add_class . '>' . $value . '</small>';
+			}
+			break;
+		case 'strong':
+			if ($value) {
+				$get_content .= '<strong ' . $add_class . '>' . $value . '</strong>';
+			}
+			break;
+		case 'span':
+			if ($value) {
+				$get_content .= '<span ' . $add_class . '>' . $value . '</span>';
+			}
+			break;
+		case 'em':
+			if ($value) {
+				$get_content .= '<em ' . $add_class . '>' . $value . '</em>';
+			}
+			break;
+		default:
+			return $get_content;
+	}
+	return $get_content;
+}
+/***************************************/
+
+
+/*******************************************************
+ * Function to return the ACF Link field array object **
+ *******************************************************/
+function kk_get_btn_link_title_and_target($button)
+{
+	if (!is_array($button)) return;
+	if (class_exists('ACF')) {
+		$btn_title = $button['title'];
+		$btn_link = $button['url'];
+		$btn_target = $button['target'] ? $button['target'] : '_self';
+		$btn_details = array(
+			'title' => $btn_title,
+			'url' => $btn_link,
+			'target' => $btn_target
+		);
+		return $btn_details;
+	}
+}
+/***************************************/
+
+
+/********************************
+ * Function that returns posts **
+ ********************************/
+function kk_get_custom_post_type($number_of_post = -1, $post_slug = '', $order = 'DESC', $order_by = 'menu_order', $meta_key = '', $post_parent = 0, $category_slug = '', $taxonomy = '')
+{
+	if ($post_slug == '') return;
+	$tax_query = array();
+	if ('' != $category_slug && '' != $taxonomy) {
+		$tax_query = array(
+			array(
+				'taxonomy' => $taxonomy,
+				'field'    => 'slug',
+				'terms'    => $category_slug,
+			),
+		);
+	}
+	$args = array(
+		'post_type'      => $post_slug,
+		'posts_per_page' => $number_of_post,
+		'orderby' => $order_by,
+		'order' => $order,
+		'meta_key' => $meta_key,
+		'post_parent' => $post_parent,
+		'tax_query' => $tax_query,
+		'post_status' => 'publish',
+	);
+	$post_type_qry  = new WP_Query($args);
+	wp_reset_postdata();
+	return $post_type_qry->posts;
+}
+/***************************************/
+
+
+/***********************************
+ * Function that returns Thumbnails **
+ ***********************************/
+function get_thumbnail_url_and_alt_text($post_id,  $fall_back_image = '', $size = '')
+{
+	if ($post_id == null) return null;
+	if ($fall_back_image == '') $fall_back_image = home_url('/media/areas-of-practice-a.jpg');
+	$image_detail = [];
+	$url = get_the_post_thumbnail_url($post_id, $size) ? get_the_post_thumbnail_url($post_id, $size) : $fall_back_image;
+	$post_meta = get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
+	$image_alt  = $post_meta ? $post_meta : get_the_title($post_id);
+
+	$image_detail['url'] = $url;
+	$image_detail['alt'] = $image_alt;
+
+	return '<img src="' . esc_url($image_detail['url']) . '" alt="' . esc_attr($image_detail['alt']) . '">';
+}
+
+
+/***********************************
+ * Function that returns taxonomy **
+ ***********************************/
+function kk_get_taxonomy($taxonomy_slug, $hide_empty = false)
+{
+	$get_taxpnomy = get_categories(array(
+		'taxonomy' => $taxonomy_slug,
+		'hide_empty' => $hide_empty,
+	));
+	return $get_taxpnomy;
+}
+/***************************************/
+
+/***********************************
+ * Function that trim letters **
+ ***********************************/
+function custom_length_excerpt($letter_count_limit, $custom_field)
+{
+	if ($custom_field) {
+		$content = $custom_field;
+	} else {
+		$content = get_the_content();
+	}
+	$content = wp_strip_all_tags($content, true);
+	if (strlen($content) >= $letter_count_limit) {
+		$trim_content = substr($content, 0, $letter_count_limit) . '...';
+		return apply_filters('the_content', $trim_content);
+	} else {
+		return apply_filters('the_content', $content);
+	}
+}
+
+
+
+function numeric_posts_nav()
+{
+
+	if (is_singular())
+		return '<div class="startp-post-navigation">%3$s</div>';
+
+	global $wp_query;
+
+	if ($wp_query->max_num_pages <= 1)
+		return;
+
+	$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+	$max   = intval($wp_query->max_num_pages);
+
+	if ($paged >= 1)
+		$links[] = $paged;
+
+	if ($paged >= 3) {
+		$links[] = $paged - 1;
+		$links[] = $paged - 2;
+	}
+
+	if (($paged + 2) <= $max) {
+		$links[] = $paged + 2;
+		$links[] = $paged + 1;
+	}
+
+	echo '<div class="col-lg-12 col-md-12"><div class="pagination-area"><nav aria-label="Page navigation"><ul class="pagination justify-content-center">' . "\n";
+
+	if (get_previous_posts_link())
+		printf('<li class="page-item"><a href="%s" class="page-link">Prev</a></li>' . "\n", get_previous_posts_page_link());
+	if (!in_array(1, $links)) {
+		$class = 1 == $paged ? 'active' : '';
+
+		printf('<li class="page-item %s"><a href="%s" class="page-link">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+
+		if (!in_array(2, $links))
+			echo '<li class="page-item"><a href="javascript:void(0)" class="page-link">…</a></li>';
+	}
+	sort($links);
+	foreach ((array) $links as $link) {
+		$class = $paged == $link ? 'active' : '';
+		printf('<li class="page-item %s"><a href="%s" class="page-link">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+	}
+	if (!in_array($max, $links)) {
+		if (!in_array($max - 1, $links))
+			echo '<li class="page-item"><a href="javascript:void(0)" class="page-link">…</a></li>' . "\n";
+
+		$class = $paged == $max ? 'active' : '';
+		printf('<li class="page-item %s"><a href="%s" class="page-link">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+	}
+	if (get_next_posts_link())
+		printf('<li class="page-item"><a href="%s" class="page-link">Next</a></li>' . "\n", get_next_posts_page_link());
+
+	echo '</ul></nav></div></div>' . "\n";
+}
+
+add_filter('navigation_markup_template', 'numeric_posts_nav', 10, 2);
+
+
+/*******************************************
+ ********Single Post Navination ************
+ *******************************************/
+
+function kk_previous_post_link($output, $format, $link, $post, $adjacent)
+{
+	if (!$post) return '<div class="prev-link-wrapper"><div class="info-prev-link-wrapper"><a href="javascript:void(0)"><span class="image-prev"><span class="post-nav-title">No Prev Post</span></span></a></div></div>';
+
+	return '<div class="prev-link-wrapper"><div class="info-prev-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="image-prev">' . get_thumbnail_url_and_alt_text(get_the_ID(), 'blog-nav') . '<span class="post-nav-title">Prev</span></span><span class="prev-link-info-wrapper"><span class="prev-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span></a></div></div>';
+}
+add_filter('previous_post_link', 'kk_previous_post_link', 10, 5);
+
+function kk_next_post_link($output, $format, $link, $post, $adjacent)
+{
+	if (!$post) return '<div class="next-link-wrapper"><div class="info-next-link-wrapper"><a href="javascript:void(0)"><span class="image-next"><span class="post-nav-title">Next</span></span></a></div></div>';
+	return '<div class="next-link-wrapper"><div class="info-next-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="next-link-info-wrapper"><span class="next-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span><span class="image-next">' . get_thumbnail_url_and_alt_text(get_the_ID(), 'blog-nav') . '<span class="post-nav-title">Next</span></span></a></div></div>';
+}
+add_filter('next_post_link', 'kk_next_post_link', 10, 5);
