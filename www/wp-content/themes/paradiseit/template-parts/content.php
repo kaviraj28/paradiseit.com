@@ -16,7 +16,7 @@ if (is_single()) { ?>
 		<div class="entry-meta">
 			<ul>
 				<li><i data-feather="clock"></i> <a href="javascript:void(0)"><?= get_the_date('F d, Y'); ?></a></li>
-				<li><i data-feather="user"></i> <a href="javascript:void(0)"><?= get_the_author(); ?></a></li>
+				<li><i data-feather="user"></i> <a href="javascript:void(0)"><?= get_the_author_meta('nicename', get_the_author_meta('ID')); ?></a></li>
 			</ul>
 		</div>
 		<?= apply_filters('the_content', get_the_content()); ?>

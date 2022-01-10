@@ -9,9 +9,11 @@
  */
 
 ?>
-<div class="article-image">
-	<?= get_thumbnail_url_and_alt_text(get_the_ID()); ?>
-</div>
-<div class="article-content">
-	<?= apply_filters('the_content', get_the_content()); ?>
+<div class="blog-details-desc">
+	<div class="article-image">
+		<?= get_thumbnail_url_and_alt_text(get_the_ID()); ?>
+	</div>
+	<div class="article-content">
+		<?= apply_filters('the_content', get_the_content()); ?>
+	</div>
 </div>

@@ -9,11 +9,16 @@ while (have_posts()) {
 			<div class="row">
 				<?php $get_services = kk_get_custom_post_type(-1, 'pit_services', 'DESC', 'date');
 				if ($get_services) {
-					foreach ($get_services as $service) { ?>
+					foreach ($get_services as $service) {
+						$image = get_field('archive_image', $service->ID); ?>
 						<div class="col-lg-4 col-sm-6 col-md-6">
 							<div class="single-ml-services-box">
 								<div class="image">
-									<?= get_thumbnail_url_and_alt_text($service->ID, home_url('media/service.png'), 'service-thumb'); ?>
+									<?php if ($image) {
+										echo get_acf_image($image, '', 'service-thumb');
+									} else { ?>
+										<img src="assets/img/services-image/1.png" alt="image">
+									<?php } ?>
 								</div>
 								<h3><a href="<?= get_permalink($service->ID); ?>"><?= $service->post_title; ?></a></h3>
 								<?= custom_length_excerpt(107, $service->post_content); ?>

@@ -218,7 +218,7 @@ function kk_get_custom_post_type($number_of_post = -1, $post_slug = '', $order =
 /***********************************
  * Function that returns Thumbnails **
  ***********************************/
-function get_thumbnail_url_and_alt_text($post_id,  $fall_back_image = '', $size = '')
+function get_thumbnail_url_and_alt_text($post_id,  $fall_back_image = '', $size = '', $class = '')
 {
 	if ($post_id == null) return null;
 	if ($fall_back_image == '') $fall_back_image = home_url('/media/areas-of-practice-a.jpg');
@@ -227,12 +227,29 @@ function get_thumbnail_url_and_alt_text($post_id,  $fall_back_image = '', $size 
 	$post_meta = get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true);
 	$image_alt  = $post_meta ? $post_meta : get_the_title($post_id);
 
-	$image_detail['url'] = $url;
-	$image_detail['alt'] = $image_alt;
+	$img_class = $class != '' ? 'class="' . $class . '"' : '';
+	$image_url = $url;
+	$image_alt = $image_alt;
 
-	return '<img src="' . esc_url($image_detail['url']) . '" alt="' . esc_attr($image_detail['alt']) . '">';
+	return '<img src="' . esc_url($image_url) . '" ' . $img_class . ' alt="' . esc_attr($image_alt) . '">';
 }
 
+
+/***********************************
+ * Function that returns ACF Image **
+ ***********************************/
+function get_acf_image($image_object, $class = '', $size = '')
+{
+	if (class_exists('ACF')) {
+		if ($image_object == null) return null;
+
+		$image_url = $size != '' ? $image_object['sizes'][$size] : $image_object['url'];
+		$image_alt = $image_object['alt'] ?: get_the_title();
+		$img_class = $class != '' ? 'class="' . $class . '"' : '';
+
+		return '<img src="' . $image_url . '" ' . $img_class . ' alt="' . $image_alt . '">';
+	}
+}
 
 /***********************************
  * Function that returns taxonomy **
