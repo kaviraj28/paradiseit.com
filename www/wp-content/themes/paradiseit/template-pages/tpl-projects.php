@@ -24,10 +24,10 @@ while (have_posts()) {
                 } ?>
             </div>
         </div>
-        <div class="shape8 rotateme"><img src="assets/img/shape2.svg" alt="shape"></div>
-        <div class="shape2 rotateme"><img src="assets/img/shape2.svg" alt="shape"></div>
-        <div class="shape7"><img src="assets/img/shape4.svg" alt="shape"></div>
-        <div class="shape4"><img src="assets/img/shape4.svg" alt="shape"></div>
+        <div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+        <div class="shape2 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+        <div class="shape7"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+        <div class="shape4"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
     </div>
 <?php }
 get_footer();

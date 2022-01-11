@@ -56,7 +56,7 @@ while (have_posts()) {
 			</div>
 			<div class="row h-100 justify-content-center align-items-center">
 				<div class="col-lg-6 col-md-12">
-					<img src="assets/img/1.png" alt="image">
+					<img src="<?= get_template_directory_uri(); ?>/img/1.png" alt="image">
 				</div>
 				<div class="col-lg-6 col-md-12">
 					<form id="contactForm">

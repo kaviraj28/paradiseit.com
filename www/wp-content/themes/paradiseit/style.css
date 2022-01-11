@@ -10967,3 +10967,30 @@ Auth Area CSS
   line-height: 35px;
   border: 1px solid #edf2f9;
 }
+
+/* New Download Page table added */
+
+
+/* The Attributes that the Head and the Body of the Table Share */
+.download-head th,
+.download-head td,.download-body th,
+.download-body td {
+  padding: 8px;
+}
+/* Attributes of the Head of the Body */
+.download-table th {
+  background-color: #404040;
+  color: #ffffff;
+	font-size:20px;
+  text-align: center;
+  border-bottom: solid 5px #ffffff;
+  border-right: solid 5px #ffffff
+}
+/* Attributes of Each Cell */
+.download-table td {
+  background-color: #eee;
+	font-size:20px;
+  text-align: center;
+  border-bottom: solid 5px #ffffff;
+  border-right: solid 5px #ffffff
+}

@@ -58,8 +58,7 @@
 							?>
 						</div>
 						<div class="others-option">
-							<a href="contact.html" class="btn btn-light">Special Offer</a>
-							<a href="login.html" class="btn btn-primary">Download</a>
+							<a href="/download/" class="btn btn-primary">Download</a>
 						</div>
 					</nav>
 				</div>
@@ -76,8 +75,7 @@
 					<div class="container">
 						<div class="option-inner">
 							<div class="others-option">
-								<a href="contact.html" class="btn btn-light">Special Offer</a>
-								<a href="login.html" class="btn btn-primary">Download</a>
+								<a href="/download/" class="btn btn-primary">Download</a>
 							</div>
 						</div>
 					</div>

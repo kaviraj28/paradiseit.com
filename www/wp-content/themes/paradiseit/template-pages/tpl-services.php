@@ -17,7 +17,7 @@ while (have_posts()) {
 									<?php if ($image) {
 										echo get_acf_image($image, '', 'service-thumb');
 									} else { ?>
-										<img src="assets/img/services-image/1.png" alt="image">
+										<img src="<?= get_template_directory_uri(); ?>/img/services-image/1.png" alt="image">
 									<?php } ?>
 								</div>
 								<h3><a href="<?= get_permalink($service->ID); ?>"><?= $service->post_title; ?></a></h3>
@@ -28,13 +28,13 @@ while (have_posts()) {
 				} ?>
 			</div>
 		</div>
-		<div class="shape1"><img src="assets/img/shape1.png" alt="shape"></div>
-		<div class="shape2 rotateme"><img src="assets/img/shape2.svg" alt="shape"></div>
-		<div class="shape3"><img src="assets/img/shape3.svg" alt="shape"></div>
-		<div class="shape4"><img src="assets/img/shape4.svg" alt="shape"></div>
-		<div class="shape6 rotateme"><img src="assets/img/shape4.svg" alt="shape"></div>
-		<div class="shape7"><img src="assets/img/shape4.svg" alt="shape"></div>
-		<div class="shape8 rotateme"><img src="assets/img/shape2.svg" alt="shape"></div>
+		<div class="shape1"><img src="<?= get_template_directory_uri(); ?>/img/shape1.png" alt="shape"></div>
+		<div class="shape2 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
+		<div class="shape3"><img src="<?= get_template_directory_uri(); ?>/img/shape3.svg" alt="shape"></div>
+		<div class="shape4"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+		<div class="shape6 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+		<div class="shape7"><img src="<?= get_template_directory_uri(); ?>/img/shape4.svg" alt="shape"></div>
+		<div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
 	</div>
 <?php }
 get_footer();

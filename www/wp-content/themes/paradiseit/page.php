@@ -15,16 +15,12 @@
 
 get_header();
 ?>
-<div class="blog-details-area ptb-80">
+<div class="privacy-policy-area ptb-80">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<?php while (have_posts()) {
-					the_post();
-					get_template_part('template-parts/content', 'page');
-				} ?>
-			</div>
-		</div>
+		<?php while (have_posts()) {
+			the_post();
+			get_template_part('template-parts/content', 'page');
+		} ?>
 	</div>
 </div>
 <?php

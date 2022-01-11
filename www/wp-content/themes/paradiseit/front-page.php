@@ -1041,7 +1041,5 @@ while (have_posts()) {
         </div>
     </div>
 
-
-
 <?php }
 get_footer();

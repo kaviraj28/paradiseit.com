@@ -9,7 +9,8 @@
  */
 
 ?>
-<div class="blog-details-desc">
+
+<div class="privacy-policy-content">
 	<div class="article-image">
 		<?= get_thumbnail_url_and_alt_text(get_the_ID()); ?>
 	</div>
