@@ -52,6 +52,7 @@ function paradiseit_setup()
 	add_image_size('service-thumb', 155, 180, true);
 	add_image_size('team-thumb', 125, 125, true);
 	add_image_size('single-service-thumb', 546, 410, true);
+	add_image_size('popular-thumb', 80, 80, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -195,7 +196,7 @@ function paradiseit_scripts()
 	// wp_enqueue_style('paradise-color-purple-style', get_template_directory_uri() . '/vendor/color/purple-style.css');
 
 	add_action('wp_head', function () {
-		echo '<script>var ss;</script>';
+		echo '<script>var pit;</script>';
 	}); // don't remove
 
 	wp_enqueue_script('paradise-bootstrap-script', get_template_directory_uri() . '/vendor/bootstrap/bootstrap.bundle.min.js', array('jquery'), null, true);

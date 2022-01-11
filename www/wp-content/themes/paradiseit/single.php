@@ -29,7 +29,10 @@ get_header();
 							</div>
 						</div>
 					<?php }
-					the_post_navigation(); ?>
+					the_post_navigation();
+					if (comments_open() || get_comments_number()) :
+						comments_template();
+					endif; ?>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12">
@@ -43,43 +46,27 @@ get_header();
 							<button type="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e('Search', 'dash-hearing'); ?>"><i data-feather="search"></i></button>
 						</form>
 					</div>
-					<div class="widget widget_startp_posts_thumb">
-						<h3 class="widget-title">Popular Posts</h3>
-						<article class="item">
-							<a href="#" class="thumb">
-								<span class="fullimage cover bg1" role="img"></span>
-							</a>
-							<div class="info">
-								<time datetime="2019-06-30">June 10, 2019</time>
-								<h4 class="title usmall"><a href="#">Making Peace With The Feast Or Famine Of
-										Freelancing</a></h4>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article class="item">
-							<a href="#" class="thumb">
-								<span class="fullimage cover bg2" role="img"></span>
-							</a>
-							<div class="info">
-								<time datetime="2019-06-30">June 21, 2019</time>
-								<h4 class="title usmall"><a href="#">I Used The Web For A Day On A 50 MB Budget</a>
-								</h4>
-							</div>
-							<div class="clear"></div>
-						</article>
-						<article class="item">
-							<a href="#" class="thumb">
-								<span class="fullimage cover bg3" role="img"></span>
-							</a>
-							<div class="info">
-								<time datetime="2019-06-30">June 30, 2019</time>
-								<h4 class="title usmall"><a href="#">How To Create A Responsive Popup Gallery?</a>
-								</h4>
-							</div>
-							<div class="clear"></div>
-						</article>
-					</div>
-					<?php $post_category = kk_get_taxonomy('category');
+					<?php $popularpost  = kk_get_custom_post_type(5, 'post', 'DESC', 'meta_value_num', 'wpb_post_views_count');
+					if ($popularpost) { ?>
+						<div class="widget widget_startp_posts_thumb">
+							<h3 class="widget-title">Popular Posts</h3>
+							<?php foreach ($popularpost as $single_post) { ?>
+								<article class="item">
+									<a href="<?= get_permalink($single_post->ID); ?>" class="thumb">
+										<span class="fullimage cover bg-cover" role="img">
+											<?= get_thumbnail_url_and_alt_text($single_post->ID, '', 'popular-thumb'); ?>
+										</span>
+									</a>
+									<div class="info">
+										<time datetime="<?= get_the_date('Y-m-d'); ?>"><?= get_the_date('F d, Y'); ?></time>
+										<h4 class="title usmall"><a href="<?= get_permalink($single_post->ID); ?>"><?= $single_post->post_title; ?></a></h4>
+									</div>
+									<div class="clear"></div>
+								</article>
+							<?php } ?>
+						</div>
+					<?php }
+					$post_category = kk_get_taxonomy('category');
 					if ($post_category) { ?>
 						<div class="widget widget_categories">
 							<h3 class="widget-title">Categories</h3>

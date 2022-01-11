@@ -6904,18 +6904,6 @@ Sidebar Widget CSS
   background-position: center center !important;
 }
 
-.widget-area .widget_startp_posts_thumb .item .thumb .fullimage.bg1 {
-  background-image: url(img/blog-image/7.jpg);
-}
-
-.widget-area .widget_startp_posts_thumb .item .thumb .fullimage.bg2 {
-  background-image: url(img/blog-image/8.jpg);
-}
-
-.widget-area .widget_startp_posts_thumb .item .thumb .fullimage.bg3 {
-  background-image: url(img/blog-image/9.jpg);
-}
-
 .widget-area .widget_startp_posts_thumb .item .info {
   overflow: hidden;
   margin-top: 5px;
