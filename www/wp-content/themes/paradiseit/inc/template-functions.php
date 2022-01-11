@@ -354,14 +354,14 @@ function kk_previous_post_link($output, $format, $link, $post, $adjacent)
 {
 	if (!$post) return '<div class="prev-link-wrapper"><div class="info-prev-link-wrapper"><a href="javascript:void(0)"><span class="image-prev"><span class="post-nav-title">No Prev Post</span></span></a></div></div>';
 
-	return '<div class="prev-link-wrapper"><div class="info-prev-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="image-prev">' . get_thumbnail_url_and_alt_text(get_the_ID(), 'blog-nav') . '<span class="post-nav-title">Prev</span></span><span class="prev-link-info-wrapper"><span class="prev-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span></a></div></div>';
+	return '<div class="prev-link-wrapper"><div class="info-prev-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="image-prev">' . get_thumbnail_url_and_alt_text($post->ID, 'blog-nav') . '<span class="post-nav-title">Prev</span></span><span class="prev-link-info-wrapper"><span class="prev-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span></a></div></div>';
 }
 add_filter('previous_post_link', 'kk_previous_post_link', 10, 5);
 
 function kk_next_post_link($output, $format, $link, $post, $adjacent)
 {
 	if (!$post) return '<div class="next-link-wrapper"><div class="info-next-link-wrapper"><a href="javascript:void(0)"><span class="image-next"><span class="post-nav-title">Next</span></span></a></div></div>';
-	return '<div class="next-link-wrapper"><div class="info-next-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="next-link-info-wrapper"><span class="next-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span><span class="image-next">' . get_thumbnail_url_and_alt_text(get_the_ID(), 'blog-nav') . '<span class="post-nav-title">Next</span></span></a></div></div>';
+	return '<div class="next-link-wrapper"><div class="info-next-link-wrapper"><a href="' . get_permalink($post->ID) . '"><span class="next-link-info-wrapper"><span class="next-title">' . custom_length_excerpt(48, get_the_title($post->ID)) . '</span><span class="meta-wrapper"><span class="date-post">' . get_the_date('F d, Y', $post->ID) . '</span></span></span><span class="image-next">' . get_thumbnail_url_and_alt_text($post->ID, 'blog-nav') . '<span class="post-nav-title">Next</span></span></a></div></div>';
 }
 add_filter('next_post_link', 'kk_next_post_link', 10, 5);
 
