@@ -28,7 +28,7 @@ $btm_content = get_field('bottom_description'); ?>
             </div>
         </div>
         <div class="separate"></div>
-        <?php if ($price_title || $price_info || $pricing) { ?>
+        <?php if (!empty(($price_title || $price_info)) && !empty($pricing)) { ?>
             <div class="pricing-area ptb-80 bg-f9f6f6">
                 <div class="container">
                     <div class="section-title">
