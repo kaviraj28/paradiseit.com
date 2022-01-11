@@ -140,7 +140,7 @@
 						<div class="shape8 rotateme"><img src="<?= get_template_directory_uri(); ?>/img/shape2.svg" alt="shape"></div>
 					</div>
 				<?php } else {
-					$title = is_home() ? 'Blog' : get_the_title; ?>
+					$title = is_home() ? 'Blog' : get_the_title(); ?>
 					<div class="page-title-area">
 						<div class="d-table">
 							<div class="d-table-cell">
