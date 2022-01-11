@@ -44,7 +44,7 @@ while (have_posts()) {
         get_field('service_one'),
         get_field('service_two'),
     );
-    for ($j = 1; $j <= count($services); $j++) {
+    for ($j = 0; $j < count($services); $j++) {
         $sev_class = $j % 2 != 0 ? 'bg-f7fafd' : '';
         if ($services[$j]) {
             $service_img = $services[$j]['service_image'];
@@ -177,7 +177,7 @@ while (have_posts()) {
             <?php }
             if ($facts) { ?>
                 <div class="row">
-                    <?php for ($x = 1; $x <= count($facts); $x++) {
+                    <?php for ($x = 0; $x < count($facts); $x++) {
                         $fct_num = $facts[$x]['fact_number'];
                         $fct_symbol = $facts[$x]['fact_symbol'];
                         $fct_info = $facts[$x]['fact_info'];
