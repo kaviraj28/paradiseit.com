@@ -50,7 +50,7 @@ function paradiseit_setup()
 	add_image_size('blog-thumb', 356, 290, true);
 	add_image_size('blog-nav', 100, 81, true);
 	add_image_size('service-thumb', 155, 180, true);
-	add_image_size('team-thumb', 125, 125, true);
+	add_image_size('team-thumb', 165, 165, true);
 	add_image_size('single-service-thumb', 546, 410, true);
 	add_image_size('popular-thumb', 80, 80, true);
 
