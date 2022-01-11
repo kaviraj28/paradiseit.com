@@ -238,7 +238,7 @@ function get_thumbnail_url_and_alt_text($post_id,  $fall_back_image = '', $size 
 /***********************************
  * Function that returns ACF Image **
  ***********************************/
-function get_acf_image($image_object, $class = '', $size = '')
+function get_acf_image($image_object, $class = '', $size = '', $delay = '')
 {
 	if (class_exists('ACF')) {
 		if ($image_object == null) return null;
@@ -246,8 +246,9 @@ function get_acf_image($image_object, $class = '', $size = '')
 		$image_url = $size != '' ? $image_object['sizes'][$size] : $image_object['url'];
 		$image_alt = $image_object['alt'] ?: get_the_title();
 		$img_class = $class != '' ? 'class="' . $class . '"' : '';
+		$img_delay = $delay != '' ? 'data-wow-delay="' . $delay . 's"' : '';
 
-		return '<img src="' . $image_url . '" ' . $img_class . ' alt="' . $image_alt . '">';
+		return '<img src="' . $image_url . '" ' . $img_class . $img_delay . ' alt="' . $image_alt . '">';
 	}
 }
 
