@@ -31,7 +31,7 @@ while (have_posts()) {
 					<?= get_thumbnail_url_and_alt_text(get_the_ID()) ?>
 				</div>
 				<div class="col-lg-6 col-md-12">
-					<?= do_shortcode('[wpforms id="175"]'); ?>
+					<?= do_shortcode('[wpforms id="228"]'); ?>
 				</div>
 			</div>
 		</div>
