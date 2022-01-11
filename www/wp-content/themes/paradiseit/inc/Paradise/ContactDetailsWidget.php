@@ -28,7 +28,7 @@ class ContactDetailsWidget extends WP_Widget
         if (!empty($email))
             echo '<li><i data-feather="mail"></i> Email: <a href="mailto:' . $email . '">' . $email . '</a></li>';
         if (!empty($phone))
-            echo '<li><i data-feather="phone-call"></i> Phone: <a href="tel:' . preg_replace('/\D/', '', $phone) . '">' . $phone . '</a></li>';
+            echo '<li><i data-feather="phone-call"></i> Phone: +977 <a href="tel:' . preg_replace('/\D/', '', $phone) . '">' . $phone . '</a></li>';
         // After widget code, if any
         echo '</ul>';
     }
