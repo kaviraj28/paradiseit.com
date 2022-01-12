@@ -3893,7 +3893,7 @@ Feedback CSS
   top: -25px;
   left: -25px;
   color: #ffffff;
-  background: linear-gradient(135deg, #0959a2 0%, #23bdb8 100%);
+  background: linear-gradient(135deg, #0959a2 0%, #0aaace 100%);
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -10981,4 +10981,9 @@ Auth Area CSS
   text-align: center;
   border-bottom: solid 5px #ffffff;
   border-right: solid 5px #ffffff
+}
+
+
+.contact-info-box li{
+  text-align: left;
 }
