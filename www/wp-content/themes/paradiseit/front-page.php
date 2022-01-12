@@ -38,7 +38,7 @@ while (have_posts()) {
                                 <div class="icon">
                                     <i data-feather="<?= $ftr_logo; ?>"></i>
                                 </div>
-                                <?= apply_filters('content', $features[$i]); ?>
+                                <?= apply_filters('content', $ftr_content); ?>
                             </div>
                         </div>
                 <?php }
