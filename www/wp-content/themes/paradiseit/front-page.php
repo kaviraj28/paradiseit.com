@@ -371,7 +371,7 @@ while (have_posts()) {
         </div>
     <?php }
     $blg_head = get_field('blog_heading');
-    $blogs = get_field('blogs');
+    $blogs = kk_get_custom_post_type(3, 'post', 'DESC', 'date');
     if ($blg_head || $blogs) { ?>
         <div class="blog-area ptb-80">
             <div class="container">
@@ -380,24 +380,24 @@ while (have_posts()) {
                         <?= apply_filters('content', $blg_head); ?>
                     </div>
                 <?php }
-                if ($blog) { ?>
+                if ($blogs) { ?>
                     <div class="row">
-                        <?php foreach ($blog as $key => $blogs) { ?>
+                        <?php foreach ($blogs as $key => $blog) { ?>
                             <div class="col-lg-4 col-md-6<?= $key == 2 ? ' offset-lg-0 offset-md-3' : ''; ?>">
                                 <div class="single-blog-post">
                                     <div class="blog-image">
-                                        <a href="<?= get_permalink($blogs->ID); ?>">
-                                            <?= get_thumbnail_url_and_alt_text($blogs->ID, '', 'blog-thumb'); ?>
+                                        <a href="<?= get_permalink($blog->ID); ?>">
+                                            <?= get_thumbnail_url_and_alt_text($blog->ID, '', 'blog-thumb'); ?>
                                         </a>
                                         <div class="date">
-                                            <i data-feather="calendar"></i> <?= get_the_date('F d, Y', $blogs->ID); ?>
+                                            <i data-feather="calendar"></i> <?= get_the_date('F d, Y', $blog->ID); ?>
                                         </div>
                                     </div>
                                     <div class="blog-post-content">
-                                        <h3><a href="<?= get_permalink($blogs->ID); ?>"><?= $blogs->post_title; ?></a></h3>
+                                        <h3><a href="<?= get_permalink($blog->ID); ?>"><?= $blog->post_title; ?></a></h3>
                                         <span>by <a href="javascript:void(0)"><?= get_the_author_meta('nicename', get_the_author_meta('ID')); ?></a></span>
-                                        <?= custom_length_excerpt(164, $blogs->post_content); ?>
-                                        <a href="<?= get_permalink($blogs->ID); ?>" class="read-more-btn">Read More <i data-feather="arrow-right"></i> </a>
+                                        <?= custom_length_excerpt(164, $blog->post_content); ?>
+                                        <a href="<?= get_permalink($blog->ID); ?>" class="read-more-btn">Read More <i data-feather="arrow-right"></i> </a>
                                     </div>
                                 </div>
                             </div>
