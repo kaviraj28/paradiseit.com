@@ -14,7 +14,9 @@ $price_info = get_field('price_info');
 $pricing = get_field('pricing');
 $btm_img = get_field('bottom_image');
 $btm_faq = get_field('faq');
-$btm_content = get_field('bottom_description'); ?>
+$btm_content = get_field('bottom_description');
+$extra_content = get_field('extra_content');
+$extra_img = get_field('extra_img'); ?>
 <div class="services-details-area ptb-80">
     <div class="container">
         <div class="row align-items-center">
@@ -101,6 +103,22 @@ $btm_content = get_field('bottom_description'); ?>
                                 </div>
                             <?php } ?>
                         </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php }
+        if ($extra_content || $extra_img) { ?>
+            <div class="row align-items-center">
+                <?php if ($extra_content) { ?>
+                    <div class="col-lg-6 services-details">
+                        <div class="services-details-desc">
+                            <?= apply_filters('the_content', $extra_content); ?>
+                        </div>
+                    </div>
+                <?php }
+                if ($extra_img) { ?>
+                    <div class="col-lg-6 services-details-image">
+                        <?= get_acf_image($extra_img, 'wow fadeInUp', 'single-service-thumb'); ?>
                     </div>
                 <?php } ?>
             </div>
