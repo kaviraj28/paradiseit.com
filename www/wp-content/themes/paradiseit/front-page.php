@@ -29,9 +29,15 @@ while (have_posts()) {
         <div class="container">
             <div class="row">
                 <?php for ($i = 0; $i < count($features); $i++) {
-                    if (!empty($features[$i])) { ?>
+                    $ftr_logo = $features[$i]['logo'];
+                    $ftr_content = $features[$i]['content'];
+                    $bg_class = $i == 1 ? ' bg-f78acb' : ($i == 2 ? ' bg-c679e3' : ($i == 3 ? ' bg-eb6b3d' : ''));
+                    if (!empty($ftr_content) || !empty($ftr_logo)) { ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-box">
+                            <div class="single-box <?= $bg_class; ?>">
+                                <div class="icon">
+                                    <i data-feather="<?= $ftr_logo; ?>"></i>
+                                </div>
                                 <?= apply_filters('content', $features[$i]); ?>
                             </div>
                         </div>
