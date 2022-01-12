@@ -475,7 +475,7 @@ label {
 .section-title .bar {
   height: 5px;
   width: 90px;
-  background: #cdf1d8;
+  background: #0959a2;
   margin: 20px auto;
   position: relative;
   border-radius: 30px;
@@ -790,7 +790,7 @@ Navbar CSS
 
 .startp-nav nav .others-option .btn.btn-light {
   background: transparent;
-  border: 2px dashed #cdf1d8;
+  border: 2px dashed #0959a2;
   padding: 12px 33px;
   margin-right: 10px;
 }
@@ -924,7 +924,7 @@ Navbar CSS
 
 .others-option-for-responsive .option-inner .others-option .btn.btn-light {
   background: transparent;
-  border: 2px dashed #cdf1d8;
+  border: 2px dashed #0959a2;
   padding: 12px 23px;
   margin-right: 10px;
 }
@@ -1566,7 +1566,7 @@ Boxes CSS
 }
 
 .single-box {
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
   padding: 30px 20px;
   position: relative;
   z-index: 1;
@@ -1584,7 +1584,7 @@ Boxes CSS
   width: 55px;
   height: 55px;
   line-height: 55px;
-  background: #cdf1d8;
+  background: #0959a2;
   border-radius: 50%;
   color: #d24950;
   -webkit-transition: 0.5s;
@@ -2148,7 +2148,7 @@ Services CSS
   width: 55px;
   height: 55px;
   line-height: 55px;
-  background: #cdf1d8;
+  background: #0959a2;
   border-radius: 50%;
   color: #d24950;
   -webkit-transition: 0.5s;
@@ -2441,7 +2441,7 @@ Features CSS
   width: 55px;
   height: 55px;
   line-height: 55px;
-  background: #cdf1d8;
+  background: #0959a2;
   border-radius: 50%;
   color: #d24950;
   left: 20px;
@@ -2509,7 +2509,7 @@ Features CSS
   width: 55px;
   height: 55px;
   line-height: 55px;
-  background: #cdf1d8;
+  background: #0959a2;
   display: inline-block;
   border-radius: 50%;
   color: #d24950;
@@ -2717,7 +2717,7 @@ Team CSS
 }
 
 .single-team .team-image img {
-  border: 3px solid #cdf1d8;
+  border: 3px solid #0959a2;
   width: auto !important;
   border-radius: 50%;
   display: inline-block !important;
@@ -4060,7 +4060,7 @@ Big Data Analytics Banner CSS
   left: 20px;
   top: 25px;
   line-height: 55px;
-  background: #cdf1d8;
+  background: #0959a2;
   border-radius: 50%;
   color: #d24950;
   -webkit-transition: 0.5s;
@@ -7895,7 +7895,7 @@ Repair Services CSS
   height: 100%;
   background: #ffffff;
   z-index: -1;
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
 }
 
 .single-repair-services::after {
@@ -7912,7 +7912,7 @@ Repair Services CSS
   z-index: -1;
   opacity: 0;
   visibility: hidden;
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
 }
 
 .single-repair-services h3 {
@@ -8075,7 +8075,7 @@ Repair Why Choose Us CSS
 .single-repair-box {
   text-align: center;
   background-color: #ffffff;
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
   padding: 30px;
   position: relative;
   z-index: 1;
@@ -8423,7 +8423,7 @@ Iot Services CSS
   padding: 40px 30px;
   text-align: center;
   background-color: #ffffff;
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
 }
 
 .single-iot-services::after {
@@ -8601,7 +8601,7 @@ IoT Why Choose Us CSS
 .single-iot-box {
   text-align: center;
   background-color: #ffffff;
-  border: 1px dashed #cdf1d8;
+  border: 1px dashed #0959a2;
   padding: 30px;
   position: relative;
   z-index: 1;
@@ -8982,7 +8982,7 @@ ML About CSS
 .ml-about-content .bar {
   height: 5px;
   width: 90px;
-  background: #cdf1d8;
+  background: #0959a2;
   margin: 20px 0;
   position: relative;
   border-radius: 30px;
@@ -9824,7 +9824,7 @@ Agency About CSS
 .agency-about-content .bar {
   height: 5px;
   width: 90px;
-  background: #cdf1d8;
+  background: #0959a2;
   margin: 20px 0;
   position: relative;
   border-radius: 30px;

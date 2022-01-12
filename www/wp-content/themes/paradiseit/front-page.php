@@ -29,7 +29,7 @@ while (have_posts()) {
         <div class="container">
             <div class="row">
                 <?php for ($i = 0; $i < count($features); $i++) {
-                    if (!empty($feature[$i])) { ?>
+                    if (!empty($features[$i])) { ?>
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="single-box">
                                 <?= apply_filters('content', $features[$i]); ?>
@@ -218,7 +218,7 @@ while (have_posts()) {
                     <div class="works-slides owl-carousel owl-theme">
                         <?php foreach ($projects as $project) { ?>
                             <div class="single-works">
-                                <?= get_thumbnail_url_and_alt_text($project->ID) ?>
+                                <?= get_thumbnail_url_and_alt_text($project->ID, '', 'project-thumb') ?>
                                 <a href="<?= get_permalink($project->ID); ?>?" class="icon"><i data-feather="settings"></i></a>
                                 <div class="works-content">
                                     <h3><a href="<?= get_permalink($project->ID); ?>?"><?= $project->post_title; ?></a></h3>
