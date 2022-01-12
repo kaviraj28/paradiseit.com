@@ -507,8 +507,8 @@ var pit;
 	});
 
 	// Preloader
-	$(window).on('load', function () {
-		$('.preloader').fadeOut();
-	});
+	// $(window).on('load', function () {
+	// 	$('.preloader').fadeOut();
+	// });
 
 }(jQuery));

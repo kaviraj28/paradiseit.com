@@ -25,11 +25,9 @@
 	<div class="site">
 
 
-		<div class="preloader">
+		<!-- <div class="preloader">
 			<div class="spinner"></div>
-		</div>
-
-
+		</div> -->
 		<header id="header" class="headroom">
 			<div class="startp-responsive-nav">
 				<div class="container">
