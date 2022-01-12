@@ -20,7 +20,7 @@ $get_projects = kk_get_custom_post_type(-1, 'pit_projects', 'DESC', 'date', '', 
                 foreach ($get_projects as $project) { ?>
                     <div class="col-lg-4 col-md-6">
                         <div class="single-works">
-                            <?= get_thumbnail_url_and_alt_text($project->ID); ?>
+                            <?= get_thumbnail_url_and_alt_text($project->ID, '', 'project-thumb'); ?>
                             <a href="<?= get_permalink($project->ID); ?>" class="icon"><i data-feather="settings"></i></a>
                             <div class="works-content">
                                 <h3><a href="<?= get_permalink($project->ID); ?>"><?= get_the_title($project->ID); ?></a></h3>

@@ -447,3 +447,91 @@ function wp_sortable_custom_column_query($query)
 }
 add_action('pre_get_posts', 'wp_sortable_custom_column_query');
 /***************************************/
+
+
+/* -----------------------------------------------------------
+Get Banner Image and Title for Posts and Pages
+--------------------------------------------------------------- */
+class GetBannerDetails
+{
+	public $ban_img = [], $ban_content = [];
+
+	function banner_image_and_title_initialize()
+	{
+		if (class_exists('ACF')) {
+			$banner = get_field('banner_details', get_the_ID());
+			return $banner;
+		}
+	}
+
+	function archive_page($page)
+	{
+		if (class_exists('ACF')) {
+			switch ($page) {
+				case 'blog':
+					$blog_page = get_page_by_path('blog');
+					$archive_page = get_field('banner_details', $blog_page->ID);
+					break;
+			}
+			return $archive_page;
+		}
+	}
+	function get_image_and_alt($image_obj, $fall_back_image, $page_title)
+	{
+		$this->ban_img['url'] = $fall_back_image;
+		$this->ban_img['alt'] = $page_title;
+		if (!empty($image_obj)) {
+			$this->ban_img['url'] = $image_obj['url'] ? $image_obj['url'] : $fall_back_image;
+			$this->ban_img['alt'] = $image_obj['alt'] ? $image_obj['alt'] : $page_title;
+		}
+		return $this->ban_img;
+	}
+
+	function get_banner_details($content, $fall_back_title)
+	{
+		$this->ban_content['banner_title'] = $fall_back_title;
+		if (!empty($content)) {
+			$this->ban_content['banner_title'] = $content['banner_title'] ? $content['banner_title'] : $fall_back_title;
+		}
+		return $this->ban_content;
+	}
+
+	/**
+	 * @param $fall_back_image
+	 * @return array
+	 */
+	function get_banner_title_and_image($fall_back_image = '')
+	{
+		if (is_home() && get_option('page_for_posts')) {
+			$img = $this->get_image_and_alt($this->archive_page('blog')['banner_image'], $fall_back_image, get_the_archive_title());
+			$content = $this->get_banner_details($this->archive_page('blog'), 'Blog');
+		} elseif (is_singular('post')) {
+
+			$content = $this->get_banner_details($this->archive_page('blog'), 'Blog');
+			$img = $this->get_image_and_alt($this->banner_image_and_title_initialize()['banner_image'], $fall_back_image, get_the_title());
+		} elseif (is_page() || is_singular()) {
+			$content = $this->get_banner_details($this->banner_image_and_title_initialize(), get_the_title());
+			$img = $this->get_image_and_alt(($this->banner_image_and_title_initialize()['banner_image']) ?? '', $fall_back_image, get_the_title());
+		} elseif (is_archive() || is_search() || is_tax()) {
+			$content = $this->get_banner_details(array(), get_the_archive_title());
+			$img = $this->get_image_and_alt(array(), $fall_back_image, get_the_archive_title());
+		} elseif (is_404()) {
+			$content = $this->get_banner_details(array(), _x('404 Error', 'Content Not Found', 'dash-hearing'));
+			$img = $this->get_image_and_alt(array(), $fall_back_image, get_the_archive_title());
+		} else {
+			$content = $this->get_banner_details(array(), get_the_title());
+			$img = $this->get_image_and_alt(array(), $fall_back_image, get_the_archive_title());
+		}
+		return $this->get_image_and_title($content, $img ?? null);
+	}
+
+	function get_image_and_title($content, $ban_image)
+	{
+		$ban = [];
+		$ban['banner_title'] = $content['banner_title'];
+		$ban['ban_image_url'] = $ban_image['url'];
+		$ban['ban_image_alt'] = $ban_image['alt'];
+		return $ban;
+	}
+}
+/***************************************/
