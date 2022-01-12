@@ -53,6 +53,7 @@ function paradiseit_setup()
 	add_image_size('team-thumb', 165, 165, true);
 	add_image_size('single-service-thumb', 546, 410, true);
 	add_image_size('popular-thumb', 80, 80, true);
+	add_image_size('project-thumb', 356, 250, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
