@@ -345,8 +345,8 @@ while (have_posts()) {
     <?php } ?>
     <div class="ready-to-talk">
         <div class="container">
-            <h3>Ready to talk?</h3>
-            <p>Our team is here to answer your question about StartP</p>
+            <h3>Let's make a plan and implement it!!</h3>
+            <p>Let's organize a plan to have a cup of tea together and start business digitally.</p>
             <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
         </div>
     </div>
@@ -354,7 +354,7 @@ while (have_posts()) {
     if ($clients) { ?>
         <div class="partner-area partner-section">
             <div class="container">
-                <h5>More that 1.5 million businesses and organizations use StartP</h5>
+                <h5>We are proud to serve 600+ customers!!!</h5>
                 <div class="partner-inner">
                     <div class="row">
                         <?php foreach ($clients as $client) { ?>
