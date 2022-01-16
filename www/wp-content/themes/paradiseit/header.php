@@ -140,7 +140,7 @@
 				<?php } else {
 					$get_banner_obj = new GetBannerDetails;
 					$banner = $get_banner_obj->get_banner_title_and_image();
-					$bg_image = !empty($banner['ban_image_url']) ? ' style="background-image: url(' . $banner['ban_image_url'] . ');background-position:center;"' : ''; ?>
+					$bg_image = !empty($banner['ban_image_url']) ? ' style="background-image: url(' . $banner['ban_image_url'] . ');background-position:center;background-size:cover;"' : ''; ?>
 					<div class="page-title-area" <?= $bg_image; ?>>
 						<div class="d-table">
 							<div class="d-table-cell">
