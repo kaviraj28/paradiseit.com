@@ -27,10 +27,18 @@ while (have_posts()) {
             } ?>
         </div>
     </div>
+    <div class="ready-to-talk">
+        <div class="container">
+            <h3>Let's make a plan and implement it!!</h3>
+            <p>Let's organize a plan to have a cup of tea together and start business digitally.</p>
+            <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
+        </div>
+    </div>
     <?php $get_clients = kk_get_custom_post_type(-1, 'pit_clients', 'DESC', 'date');
     if ($get_clients) { ?>
         <div class="privacy-policy-area ptb-80">
             <div class="container">
+                <h5>We are proud to serve 600+ customers!!!</h5>
                 <div class="partner-area partner-section">
                     <div class="partner-inner">
                         <div class="row">
