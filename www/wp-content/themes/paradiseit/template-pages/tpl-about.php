@@ -4,7 +4,7 @@
 get_header();
 while (have_posts()) {
     the_post(); ?>
-    <div class="about-area pt-80">
+    <div class="about-area ptb-80">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
