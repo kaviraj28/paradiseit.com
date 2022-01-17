@@ -36,21 +36,19 @@ while (have_posts()) {
     </div>
     <?php $get_clients = kk_get_custom_post_type(-1, 'pit_clients', 'DESC', 'date');
     if ($get_clients) { ?>
-        <div class="privacy-policy-area ptb-80">
+        <div class="partner-area partner-section">
             <div class="container">
                 <h5>We are proud to serve 600+ customers!!!</h5>
-                <div class="partner-area partner-section">
-                    <div class="partner-inner">
-                        <div class="row">
-                            <?php foreach ($get_clients as $clients) { ?>
-                                <div class="col-lg-2 col-md-3 col-6 col-sm-4">
-                                    <a href="<?= get_field('client_web_url', $clients->ID) ?: '#'; ?>">
-                                        <?= get_acf_image(get_field('image_one', $clients->ID)); ?>
-                                        <?= get_acf_image(get_field('image_two', $clients->ID)); ?>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
+                <div class="partner-inner">
+                    <div class="row">
+                        <?php foreach ($get_clients as $client) { ?>
+                            <div class="col-lg-2 col-md-3 col-6 col-sm-4">
+                                <a href="<?= get_field('client_web_url', $client->ID) ?: '#'; ?>">
+                                    <?= get_acf_image(get_field('image_one', $client->ID)); ?>
+                                    <?= get_acf_image(get_field('image_two', $client->ID)); ?>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
