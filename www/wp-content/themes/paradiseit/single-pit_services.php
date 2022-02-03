@@ -74,7 +74,8 @@ $extra_img = get_field('extra_img'); ?>
             </div>
             <div class="separate"></div>
         <?php }
-        if ($btm_content || $btm_img || $btm_faq) { ?>
+        if ($btm_content || $btm_img || $btm_faq) {
+            $btm_class = !empty($btm_img) ? 'col-lg-6' : 'col-lg-12'; ?>
             <div class="row align-items-center">
                 <?php if ($btm_img) { ?>
                     <div class="col-lg-6 services-details-image">
@@ -82,7 +83,7 @@ $extra_img = get_field('extra_img'); ?>
                     </div>
                 <?php }
                 if ($btm_content || $btm_faq) { ?>
-                    <div class="col-lg-6 services-details">
+                    <div class="<?= $btm_class; ?> services-details">
                         <div class="services-details-desc">
                             <?= check_if_exists($btm_content, 'p'); ?>
                             <?php if ($btm_faq) {
@@ -107,7 +108,8 @@ $extra_img = get_field('extra_img'); ?>
                 <?php } ?>
             </div>
         <?php }
-        if ($extra_content || $extra_img) { ?>
+        if ($extra_content || $extra_img) {
+            $extra_class = !empty($extra_img) ? 'col-lg-6' : 'col-lg-12'; ?>
             <div class="row align-items-center">
                 <?php if ($extra_content) { ?>
                     <div class="col-lg-6 services-details">
@@ -117,7 +119,7 @@ $extra_img = get_field('extra_img'); ?>
                     </div>
                 <?php }
                 if ($extra_img) { ?>
-                    <div class="col-lg-6 services-details-image">
+                    <div class="<?= $extra_class; ?> services-details-image">
                         <?= get_acf_image($extra_img, 'wow fadeInUp', 'single-service-thumb'); ?>
                     </div>
                 <?php } ?>
